@@ -2,53 +2,42 @@ package pl.kfrak;
 
 import java.io.*;
 
+
 public class MyFileReader {
 
-    private String textFromFile;
     private String fileName;
     private BufferedReader reader;
 
+
     public MyFileReader(String fileName) {
         this.fileName = fileName;
-        readMyFile();
-//        System.out.println(removeSpaces());
     }
 
-    public String removeSpaces() {
-        return textFromFile != null ? textFromFile.replaceAll(" ", "") : "";
-//        String result = "";
-//        textFromFile.replaceAll(" ", "");
-//        result = textFromFile;
-//        return result;
-    }
-
-      private void readMyFile() {
-        InputStream inputStream = getClass().getClassLoader().getResourceAsStream(this.fileName);
+    public String readMyFile() throws IOException {
+        InputStream inputStream = getPath();
 
         if (inputStream == null) {
-            System.out.println("Nie ma takiego pliku");
+            throw new FileNotFoundException("File not found, yo");
         } else {
-            reader = new BufferedReader(new InputStreamReader(inputStream));
-            readAllLines();
+            this.reader = new BufferedReader(new InputStreamReader(inputStream));
+            return readAllLines();
         }
     }
 
-    private void readAllLines() {
-        try {
-            String result = "";
-            String line;
+    private InputStream getPath() {
+        return getClass().getClassLoader().getResourceAsStream(fileName);
+    }
 
-            while ((line = this.reader.readLine()) != null) {
-                if (line.isEmpty()) {
-                    break;
-                }
-                result += line + "\n";
+    private String readAllLines() throws IOException {
+        String result = "";
+        String line;
+
+        while ((line = this.reader.readLine()) != null) {
+            if (line.isEmpty()) {
+                break;
             }
-            this.textFromFile = result;
-
-        } catch (IOException e) {
-            System.out.println("The specified file does not exist");
+            result += line + "\n";
         }
+        return result;
     }
-
 }

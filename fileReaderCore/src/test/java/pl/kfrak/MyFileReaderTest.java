@@ -1,41 +1,26 @@
 package pl.kfrak;
 
-import junit.framework.TestCase;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.TemporaryFolder;
 
-import java.io.File;
+import java.io.IOException;
 
 import static org.junit.Assert.*;
 
 /**
- * Created by kfrak on 13.06.2018.
+ * Created by kfrak on 14.06.2018.
  */
-public class MyFileReaderTest extends TestCase {
-
-    //The TemporaryFolder Rule allows creation of files and folders that
-    // should be deleted when the test method finishes (whether it passes or fails).
-    //https://stackoverflow.com/questions/43193188/junit-before-vs-rule
-
-    @Rule
-    public TemporaryFolder tempFolder = new TemporaryFolder();
-
-
+public class MyFileReaderTest {
 
     @Test
-    public void readMyFile_simpleCaseFile() throws Exception {
+    public void readMyFile_simpleCase() throws IOException {
         //given
-        String testFileName = ".src/test/resources/simpleCaseFile.txt";
-        File file = tempFolder.newFile(testFileName);
+        String testFileName = "simpleCaseFile.txt";
         String expected = "A B C\n" +
-                "D e f g";
+                "D e f g\n";
 
         //when
-        MyFileReader myFileReader = new MyFileReader();
-        String result = MyFileReader.readMyFile(testFileName);
+        MyFileReader myFileReader = new MyFileReader(testFileName);
+        String result = myFileReader.readMyFile();
 
         //then
         assertEquals(expected, result);
@@ -43,22 +28,41 @@ public class MyFileReaderTest extends TestCase {
 
     @Test
     public void readMyFile_emptyFile() throws Exception {
-        File testFile = tempFolder.newFile(".src/test/resources/emptyFile.txt");
-    }
+        //given
+        String testFileName = "emptyFile.txt";
+        String expected = "";
 
-    @Test
-    public void readMyFile_onlySpaces() throws Exception {
-        File testFile = tempFolder.newFile(".src/test/resources/onlySpacesFile.txt");
+        //when
+        MyFileReader myFileReader = new MyFileReader(testFileName);
+        String result = myFileReader.readMyFile();
+
+        //then
+        assertEquals(expected, result);
     }
 
     @Test
     public void readMyFile_enter() throws Exception {
-        File testFile = tempFolder.newFile(".src/test/resources/onlyEnterFile.txt");
+        //given
+        String testFileName = "onlyEnterFile.txt";
+        String expected = "";
 
+        //when
+        MyFileReader myFileReader = new MyFileReader(testFileName);
+        String result = myFileReader.readMyFile();
+
+        //then
+        assertEquals(expected, result);
     }
 
     @Test (expected = NullPointerException.class)
     public void readMyFile_notExistingFile() throws Exception {
+        //given
+        String testFileName = "not.txt";
+
+        //when
+        MyFileReader myFileReader = new MyFileReader(testFileName);
+
+        //then
 
     }
 
