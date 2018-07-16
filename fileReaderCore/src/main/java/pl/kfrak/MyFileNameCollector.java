@@ -13,7 +13,7 @@ public class MyFileNameCollector {
     }
 
     public String getFileNameFromUser() {
-        System.out.println("Wskaż plik, poprzez wpisanie jego nazwy oraz zatwierdzenie enterem.\nNastępnie program bezspacjowo odczyta zawartość pliku.");
+        System.out.println("Wskaż plik poprzez wpisanie jego nazwy oraz zatwierdzenie enterem.\nNastępnie program bezspacjowo odczyta zawartość pliku.");
         return inputScanner.nextLine();
     }
 }

@@ -5,7 +5,6 @@ package pl.kfrak;
  */
 public class TextTransformer {
 
-
     public static String removeSpaces(String text) {
         return text != null ? text.replaceAll(" ", "") : "";
     }

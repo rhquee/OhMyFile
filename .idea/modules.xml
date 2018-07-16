@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/FileReader.iml" filepath="$PROJECT_DIR$/FileReader.iml" />
       <module fileurl="file://$PROJECT_DIR$/fileReaderCore/fileReaderCore.iml" filepath="$PROJECT_DIR$/fileReaderCore/fileReaderCore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fileReaderGUI/fileReaderGUI.iml" filepath="$PROJECT_DIR$/fileReaderGUI/fileReaderGUI.iml" />
     </modules>
   </component>
 </project>

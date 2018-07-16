@@ -3,6 +3,7 @@ package pl.kfrak;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.nio.file.NoSuchFileException;
 
 import static org.junit.Assert.*;
 
@@ -54,16 +55,15 @@ public class MyFileReaderTest {
         assertEquals(expected, result);
     }
 
-    @Test (expected = NullPointerException.class)
-    public void readMyFile_notExistingFile() throws Exception {
-        //given
-        String testFileName = "not.txt";
-
-        //when
-        MyFileReader myFileReader = new MyFileReader(testFileName);
-
-        //then
-
-    }
+//    @Test (expected = NoSuchFileException.class)
+//    public void readMyFile_notExistingFile() throws Exception {
+//        //given
+//        String testFileName = "not.txt";
+//
+//        //when
+//        MyFileReader myFileReader = new MyFileReader(testFileName);
+//
+//        //then
+//    }
 
 }

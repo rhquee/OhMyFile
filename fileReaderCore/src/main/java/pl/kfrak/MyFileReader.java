@@ -17,7 +17,7 @@ public class MyFileReader {
         InputStream inputStream = getPath();
 
         if (inputStream == null) {
-            throw new FileNotFoundException("File not found, yo");
+            throw new FileNotFoundException("File not found!");
         } else {
             this.reader = new BufferedReader(new InputStreamReader(inputStream));
             return readAllLines();

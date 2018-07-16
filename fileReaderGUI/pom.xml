@@ -2,19 +2,16 @@
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>FileReader</artifactId>
+        <groupId>pl.kfrak</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>pl.kfrak</groupId>
-    <artifactId>FileReader</artifactId>
-    <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <artifactId>fileReaderGUI</artifactId>
 
-    <modules>
-        <module>fileReaderCore</module>
-        <module>fileReaderGUI</module>
-    </modules>
-
-    <name>FileReader</name>
+    <name>fileReaderGUI</name>
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
 
@@ -26,10 +23,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.11</version>
-            <scope>test</scope>
+            <groupId>pl.kfrak</groupId>
+            <artifactId>fileReaderCore</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
