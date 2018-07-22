@@ -9,7 +9,7 @@ import static org.junit.Assert.*;
  */
 public class TextTransformerTest {
     @Test
-    public void removeSpaces_simpleCase() {
+    public void shouldReturnTextWithoutSpacesFromBasicText() {
         //given
         String basic = "Lorem ipsum";
         String expected = "Loremipsum";
@@ -22,10 +22,10 @@ public class TextTransformerTest {
     }
 
     @Test
-    public void removeSpaces_null() {
+    public void shouldReturnNullFromNull() {
         //given
         String basic = null;
-        String expected = "";
+        String expected = null;
 
         //when
         String result = TextTransformer.removeSpaces(basic);
@@ -35,7 +35,7 @@ public class TextTransformerTest {
     }
 
     @Test
-    public void removeSpaces_spaces() {
+    public void shouldReturnEmptyResultFromSpaceOnly() {
         //given
         String basic = " ";
         String expected = "";
@@ -48,7 +48,7 @@ public class TextTransformerTest {
     }
 
     @Test
-    public void removeSpaces_spaceAndEnter() {
+    public void shouldReturnEmptyResultFromSpaceAndEnter() {
         //given
         String basic = " /n";
         String expected = "/n";

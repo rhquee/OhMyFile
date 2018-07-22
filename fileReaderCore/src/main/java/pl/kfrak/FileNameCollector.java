@@ -5,10 +5,10 @@ import java.util.Scanner;
 /**
  * Created by kfrak on 10.06.2018.
  */
-public class MyFileNameCollector {
+public class FileNameCollector {
     private Scanner inputScanner;
 
-    public MyFileNameCollector() {
+    public FileNameCollector() {
         this.inputScanner = new Scanner(System.in);
     }
 
