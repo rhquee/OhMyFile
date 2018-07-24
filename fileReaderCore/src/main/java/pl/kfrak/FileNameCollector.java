@@ -1,19 +1,28 @@
 package pl.kfrak;
 
+import java.io.*;
 import java.util.Scanner;
 
 /**
  * Created by kfrak on 10.06.2018.
+ *
+ *
+ * ufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+ //....
+ int x,y;
+ System.out.print("Enter Х: ");
+ x = Integer.parseInt(reader.readLine());
+
  */
 public class FileNameCollector {
-    private Scanner inputScanner;
+    private BufferedReader bufferedReader;
 
-    public FileNameCollector() {
-        this.inputScanner = new Scanner(System.in);
+
+    public FileNameCollector(InputStream inputStream) {
+        this.bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
     }
 
-    public String getFileNameFromUser() {
-        System.out.println("Wskaż plik poprzez wpisanie jego nazwy oraz zatwierdzenie enterem.\nNastępnie program bezspacjowo odczyta zawartość pliku.");
-        return inputScanner.nextLine();
+    public String getFileNameFromUser() throws IOException {
+        return bufferedReader.readLine();
     }
 }

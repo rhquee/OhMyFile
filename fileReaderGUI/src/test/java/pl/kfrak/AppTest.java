@@ -9,6 +9,16 @@ import org.junit.Test;
  */
 public class AppTest 
 {
+    @Test
+    public void main() throws Exception {
+
+    }
+
+    @Test
+    public void readAndTransformFileFromUsersInput() throws Exception {
+
+    }
+
     /**
      * Rigorous Test :-)
      */
