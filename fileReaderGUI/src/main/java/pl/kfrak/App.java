@@ -14,13 +14,11 @@ public class App {
     //BufferedReader
     public void readAndTransformFileFromUsersInput(FileNameCollector input, MessageDisplayer output) {
         try {
-//            input = new FileNameCollector(System.in);
             MessageDisplayer.displayText("Wskaż plik poprzez wpisanie jego nazwy oraz zatwierdzenie enterem.\nNastępnie program bezspacjowo odczyta zawartość pliku.");
             String inputFromUser = input.getFileNameFromUser();
             FileReader fileReader = new FileReader(inputFromUser);
             String file = fileReader.readFile();
             String resultFileText = TextTransformer.removeSpaces(file);
-//            output = new MessageDisplayer();
             output.displayText(resultFileText);
         } catch (IOException e) {
             MessageDisplayer.displayText(e.getMessage());

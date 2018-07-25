@@ -15,16 +15,13 @@ import static org.mockito.Mockito.when;
  */
 public class FileNameCollectorTest {
 
-//    Mockito.verify(mockedObject).someMethodOnMockedObject(Mockito.argThat(
-//            Matchers.<SomeObjectAsArgument>hasProperty("propertyName", desiredValue)));
-
     @Test
     public void getFileNameFromUser() throws Exception {
-        FileNameCollector fileNameCollector = mock(FileNameCollector.class);
+        FileNameCollector mockedFileNameCollector = mock(FileNameCollector.class);
 
-        when(fileNameCollector.getFileNameFromUser()).thenReturn("text"); // FIXME: 23.07.2018
-        assertEquals("text", fileNameCollector.getFileNameFromUser()); //expected, result
-        //verify(fileNameCollector).getFileNameFromUser(argThat(Matchers.eq(fileNameCollector.getFileNameFromUser(), "text")));
+        when(mockedFileNameCollector.getFileNameFromUser()).thenReturn("text"); // FIXME: 23.07.2018
+        assertEquals("text", mockedFileNameCollector.getFileNameFromUser()); //expected, result
+        //verify(mockedFileNameCollector).getFileNameFromUser(argThat(Matchers.eq(mockedFileNameCollector.getFileNameFromUser(), "text")));
 
 
     }
