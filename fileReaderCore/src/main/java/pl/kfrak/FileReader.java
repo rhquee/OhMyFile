@@ -2,7 +2,6 @@ package pl.kfrak;
 
 import java.io.*;
 
-
 public class FileReader {
     private String fileName;
 
@@ -31,7 +30,10 @@ public class FileReader {
             if (line.isEmpty()) {
                 break;
             }
-            result += line + "\n";
+            if (result.length() > 0) {
+                result += "\n";
+            }
+            result += line;
         }
         return result;
     }

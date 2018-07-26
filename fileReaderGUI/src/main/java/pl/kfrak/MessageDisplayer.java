@@ -1,11 +1,17 @@
 package pl.kfrak;
 
-/**
- * Created by kfrak on 22.07.2018.
- */
 public class MessageDisplayer {
+    private String message = "";
 
-    public static void displayText(String message){
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public void displayText() {
         System.out.println(message);
     }
 }
