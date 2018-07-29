@@ -7,9 +7,6 @@ import java.io.IOException;
 
 import static org.junit.Assert.assertEquals;
 
-/**
- * Created by kfrak on 14.06.2018.
- */
 public class FileReaderTest {
 
     @Test
@@ -17,7 +14,7 @@ public class FileReaderTest {
         //given
         String testFileName = "simpleCaseFile.txt";
         String expected = "A B C\n" +
-                "D e f g\n";
+                "D e f g";
 
         //when
         FileReader fileReader = new FileReader(testFileName);
@@ -42,7 +39,7 @@ public class FileReaderTest {
     }
 
 
-    @Test (expected = FileNotFoundException.class)
+    @Test(expected = FileNotFoundException.class)
     public void shouldThrowFileNotFoundExceptionWhenFileDoesntExist() throws Exception {
         //given
         String testFileName = "not.txt";

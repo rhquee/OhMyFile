@@ -10,16 +10,23 @@ import java.io.IOException;
 
 public class AppTest {
 
-    @Test(expected = IOException.class)
-    public void shouldThrowsIOExceptionError() throws Exception {
-        // TODO: 26.07.2018
+    @Test(expected = NullPointerException.class)
+    public void shouldThrowsNullPointerException() throws Exception {
+        //given
+        String fileName = "not.txt";
+        FileNameCollector mockedFileNameCollector = mock(FileNameCollector.class);
+        MessageDisplayer messageDisplayer = new MessageDisplayer();
+        App app = new App();
+        when(mockedFileNameCollector.getFileNameFromUser()).thenReturn(fileName);
+        //when
+        app.readAndTransformFileFromUsersInput(mockedFileNameCollector, messageDisplayer);
     }
 
+
     @Test
-    public void shouldReadandDisplayTextFromFile() throws IOException {
+    public void shouldReadsAndDisplayTextFromFile() throws IOException {
         //given
         String fileName = "test.txt";
-        //InputStream inputStream = getClass().getClassLoader().getResourceAsStream(fileName);
         FileNameCollector mockedFileNameCollector = mock(FileNameCollector.class);
         MessageDisplayer messageDisplayer = new MessageDisplayer();
         App app = new App();

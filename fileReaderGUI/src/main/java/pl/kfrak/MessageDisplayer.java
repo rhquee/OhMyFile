@@ -12,6 +12,6 @@ public class MessageDisplayer {
     }
 
     public void displayText() {
-        System.out.println(message);
+        System.out.println(this.getMessage());
     }
 }
