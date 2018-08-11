@@ -1,25 +1,30 @@
 package pl.kfrak;
 
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public class AppTest {
 
-    @Test(expected = NullPointerException.class)
-    public void shouldThrowsNullPointerException() throws Exception {
+    @Test
+    public void shouldShowNotFoundFileMessage() throws Exception {
         //given
         String fileName = "not.txt";
         FileNameCollector mockedFileNameCollector = mock(FileNameCollector.class);
-        MessageDisplayer messageDisplayer = new MessageDisplayer();
-        App app = new App();
+        PrintWriter output = mock(PrintWriter.class);
+
         when(mockedFileNameCollector.getFileNameFromUser()).thenReturn(fileName);
-        //when
-        app.readAndTransformFileFromUsersInput(mockedFileNameCollector, messageDisplayer);
+
+        // when
+        new App().readAndTransformFileFromUsersInput(mockedFileNameCollector, output);
+
+        // then
+        verify(output).println("Nie znaleziono takiego pliku");
     }
 
 
@@ -28,12 +33,14 @@ public class AppTest {
         //given
         String fileName = "test.txt";
         FileNameCollector mockedFileNameCollector = mock(FileNameCollector.class);
-        MessageDisplayer messageDisplayer = new MessageDisplayer();
-        App app = new App();
+        PrintWriter out = mock(PrintWriter.class);
         when(mockedFileNameCollector.getFileNameFromUser()).thenReturn(fileName);
+
         //when
-        app.readAndTransformFileFromUsersInput(mockedFileNameCollector, messageDisplayer);
+        App app = new App();
+        app.readAndTransformFileFromUsersInput(mockedFileNameCollector, out);
+
         //then
-        Assert.assertEquals("Loremipsum", messageDisplayer.getMessage());
+        verify(out).println("Loremipsum");
     }
 }

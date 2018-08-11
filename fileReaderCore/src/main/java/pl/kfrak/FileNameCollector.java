@@ -6,8 +6,8 @@ public class FileNameCollector {
     private BufferedReader bufferedReader;
 
 
-    public FileNameCollector(InputStream inputStream) {
-        this.bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+    public FileNameCollector(BufferedReader inputStream) {
+        this.bufferedReader = inputStream;
     }
 
     public String getFileNameFromUser() throws IOException {
