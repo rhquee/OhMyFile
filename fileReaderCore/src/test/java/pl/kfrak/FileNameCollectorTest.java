@@ -5,6 +5,8 @@ import org.junit.Test;
 import java.io.*;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.times;
 
 public class FileNameCollectorTest {
 
@@ -13,11 +15,16 @@ public class FileNameCollectorTest {
         //given
         String given = "test data";
         String expected = "test data";
-        InputStream inputStream = new ByteArrayInputStream(given.getBytes());
-        FileNameCollector fileNameCollector = new FileNameCollector(inputStream);
+
+        BufferedReader bufferedReader = mock(BufferedReader.class);
+        when(bufferedReader.readLine()).thenReturn(given);
+
         //when
-        fileNameCollector.getFileNameFromUser();
+        FileNameCollector fileNameCollector = new FileNameCollector(bufferedReader);
+        String fileNameFromUser = fileNameCollector.getFileNameFromUser();
+
         //then
-        assertEquals(expected, given);
+        verify(bufferedReader, times(1)).readLine();
+        assertEquals(expected, fileNameFromUser);
     }
 }
