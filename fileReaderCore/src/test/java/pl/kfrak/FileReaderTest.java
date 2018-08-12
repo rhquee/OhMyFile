@@ -17,8 +17,8 @@ public class FileReaderTest {
                 "D e f g";
 
         //when
-        FileReader fileReader = new FileReader(testFileName);
-        String result = fileReader.readFile();
+        //FileReader fileReader = new FileReader(testFileName);
+        String result = new FileReader(testFileName).readFile();
 
         //then
         assertEquals(expected, result);
@@ -31,8 +31,8 @@ public class FileReaderTest {
         String expected = "";
 
         //when
-        FileReader fileReader = new FileReader(testFileName);
-        String result = fileReader.readFile();
+        //FileReader fileReader = new FileReader(testFileName);
+        String result = new FileReader(testFileName).readFile();
 
         //then
         assertEquals(expected, result);
@@ -45,10 +45,9 @@ public class FileReaderTest {
         String testFileName = "not.txt";
 
         //when
-        FileReader fileReader = new FileReader(testFileName);
+        new FileReader(testFileName).readFile();
 
         //then
-        fileReader.readFile();
     }
 
 }
