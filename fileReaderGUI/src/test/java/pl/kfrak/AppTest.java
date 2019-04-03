@@ -1,23 +1,13 @@
 package pl.kfrak;
 
 import org.junit.Test;
-
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.PrintWriter;
 
 import static org.mockito.Mockito.*;
-import static pl.kfrak.TextTransformer.removeSpaces;
-
-/**
- * 1) wyjątek z catcha - porównanie outputu z treścią wyjątku,
- * 2) wynik poprawny - porównanie outputu z odspacjowaną treścią z pliku.
- * 3) sprawdzenie czy wywoływane są odpowiednie metody przez metodę run()
- * 4) sprawdzenie czy wywoływane są odpowiednie metody przez metodę readAndTransformFileFromUsersInput()
- * **/
-
 
 public class AppTest {
+
     @Test
     public void shouldShowNotFoundFileMessage() throws Exception {
         //given
@@ -56,8 +46,7 @@ public class AppTest {
         String fileName = "test.txt";
         PrintWriter mockedPrintWriter = mock(PrintWriter.class);
         BufferedReader mockedBufferedReader = mock(BufferedReader.class);
-            //FileNameCollector mockedFileNameCollector = mock(FileNameCollector.class);
-            //when(mockedFileNameCollector.getFileNameFromUser()).thenReturn(fileName);
+
         when(mockedBufferedReader.readLine()).thenReturn(fileName);
 
         // when
@@ -82,11 +71,8 @@ public class AppTest {
         App spyApp = spy(App.class);
         spyApp.readAndTransformFileFromUsersInput(mockedFileNameCollector, mockedPrintWriter);
 
-        TextTransformer textTransformer = spy(TextTransformer.class);
-
         // then
         verify(mockedFileNameCollector, times(1)).getFileNameFromUser();
-        verify(TextTransformer, times(1)).removeSpaces(anyString());
         verify(mockedPrintWriter, times(1)).println("Loremipsum");
     }
 }
